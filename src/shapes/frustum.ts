@@ -1,7 +1,8 @@
 import type { RMat4 } from '../core/mat4';
+import type { DeepReadonly } from '../core/readonly';
 import type { RVec3, Vec3 } from '../core/vec3';
 import type { RBox3 } from './box3';
-import type { Plane3, RPlane3 } from './plane3';
+import type { Plane3 } from './plane3';
 import * as plane3 from './plane3';
 import type { RSphere } from './sphere';
 
@@ -13,7 +14,7 @@ import type { RSphere } from './sphere';
 export type Frustum = [Plane3, Plane3, Plane3, Plane3, Plane3, Plane3];
 
 /** A read-only view frustum */
-export type RFrustum = readonly [RPlane3, RPlane3, RPlane3, RPlane3, RPlane3, RPlane3];
+export type RFrustum = DeepReadonly<Frustum>;
 
 /**
  * The eight corners of a frustum, as returned by [[corners]].
@@ -23,7 +24,7 @@ export type RFrustum = readonly [RPlane3, RPlane3, RPlane3, RPlane3, RPlane3, RP
 export type FrustumCorners = [Vec3, Vec3, Vec3, Vec3, Vec3, Vec3, Vec3, Vec3];
 
 /** The eight read-only corners of a frustum */
-export type RFrustumCorners = readonly [RVec3, RVec3, RVec3, RVec3, RVec3, RVec3, RVec3, RVec3];
+export type RFrustumCorners = DeepReadonly<FrustumCorners>;
 
 /**
  * Creates a new frustum of zeroed planes.

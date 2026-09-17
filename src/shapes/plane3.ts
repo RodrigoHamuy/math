@@ -1,4 +1,5 @@
 import type { RMat4 } from '../core/mat4';
+import type { DeepReadonly } from '../core/readonly';
 import type { RVec3, Vec3 } from '../core/vec3';
 import * as vec3 from '../core/vec3';
 import type { RSphere } from './sphere';
@@ -11,7 +12,7 @@ import type { RSphere } from './sphere';
 export type Plane3 = { normal: Vec3; constant: number };
 
 /** A read-only plane in 3D space */
-export type RPlane3 = { readonly normal: RVec3; readonly constant: number };
+export type RPlane3 = DeepReadonly<Plane3>;
 
 /**
  * Creates a new plane with normal (0, 1, 0) and constant 0

@@ -2,6 +2,7 @@ import type { Mat3, RMat3 } from '../core/mat3';
 import * as mat3 from '../core/mat3';
 import type { RMat4 } from '../core/mat4';
 import type { RQuat } from '../core/quat';
+import type { DeepReadonly } from '../core/readonly';
 import { EPSILON } from '../core/scalar';
 import type { RVec3, Vec3 } from '../core/vec3';
 import type { RBox3 } from './box3';
@@ -10,7 +11,7 @@ import type { RBox3 } from './box3';
 export type OBB3 = { center: Vec3; halfExtents: Vec3; rotation: Mat3 };
 
 /** A read-only oriented bounding box in 3D space */
-export type ROBB3 = { readonly center: RVec3; readonly halfExtents: RVec3; readonly rotation: RMat3 };
+export type ROBB3 = DeepReadonly<OBB3>;
 
 export function create(): OBB3 {
     return { center: [0, 0, 0], halfExtents: [1, 1, 1], rotation: mat3.create() };

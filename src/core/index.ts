@@ -1,3 +1,4 @@
+export type { DeepReadonly } from './readonly';
 export * from './scalar';
 export * from './angle';
 export type { MutableArrayLike } from './arrays';

@@ -1,10 +1,11 @@
+import type { DeepReadonly } from '../core/readonly';
 import type { RVec3, Vec3 } from '../core/vec3';
 
 /** A sphere in 3D space */
 export type Sphere = { center: Vec3; radius: number };
 
 /** A read-only sphere in 3D space */
-export type RSphere = { readonly center: RVec3; readonly radius: number };
+export type RSphere = DeepReadonly<Sphere>;
 
 /**
  * Creates a new sphere with a default center 0,0,0 and radius 1
